@@ -7,5 +7,12 @@ function solveEquation(a, b, c) {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
+  let percent100 = percent / 100
+  let percentMonth = percent100 / 12
+  let credit = amount - contribution
+  let payment = credit * (percentMonth + (percentMonth / ((Math.pow((1 + percentMonth), countMonths)) - 1)))
+  let sum = payment * countMonths
+  return parseFloat(sum.toFixed(2))
+
   
 }
